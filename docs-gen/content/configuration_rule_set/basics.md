@@ -30,6 +30,7 @@ and it may provide a `public` URL to a file containing the complete tree,
 possible also multiple `public` URLs to renditions of the tree in different formats such as YAML, JSON, etc.
 
 The creation of a HIM configuration file is the responsibility of the  "manager" of the HIM server.
+Usage of a HIM configuration file is optional, but it is recommended in scenarios where the server manages more than one tree.
 
 ## Configuration node types
 
