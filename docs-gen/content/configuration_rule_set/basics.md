@@ -36,15 +36,14 @@ Usage of a HIM configuration file is optional, but it is recommended in scenario
 
 The following node types can be used in a configuration tree:
 1. [Branch](/hierarchical_information_model/common_rule_set/node_types/branch/)
-2. [Direct](/hierarchical_information_model/configuration_rule_set/node_types/diect/)
+2. [Direct](/hierarchical_information_model/configuration_rule_set/node_types/direct/)
 3. [Proxy](/hierarchical_information_model/configuration_rule_set/node_types/proxy/)
 
 ## Configuration Tree Example
-This example shows a forest consisting of three local trees, and a remote tree:
+This example shows a forest consisting of three local trees:
 1. A local tree containing passenger car related signals, having the root node name VehicleData.
 2. A local tree containing passenger car related services, having the root node name VehicleServices.
 3. A local tree containing type passenger car related ype definitions, having the root node name Types.
-4. A remote tree containing charge station related signals, having the root node name ChargingStationData.
 
 ```YAML
 HIM:
@@ -54,10 +53,10 @@ HIM:
 
 VehicleData:
   type: direct
-  domain: Vehicle.Car.Data
+  domain: Vehicle.Car.VehicleData
   version: X.Y.Z
   local: file://<full-path-name>
-  public: https://himrepo.oem.com?instance=Vehicle.Car.Data.X.Y.Z
+  public: https://himrepo.oem.com?instance=Vehicle.Car.VehicleData.X.Y.Z
   description:  ….
 
 VehicleServices:
@@ -73,14 +72,6 @@ Types:
   domain: Vehicle.Car.TypeDefinition
   version: X.Y.Z
   local: file://<full-path-name>
-  public: https://himrepo.oem.com?instance=Vehicle.Car.DataType.X.Y.Z
-  description:  ….
-
-
-ChargingStationData:
-  type: proxy
-  domain:ChargingStation.Vehicle.Data
-  version: X.Y.Z
-  public: https://himrepo.energyco.com?instance=ChargingStation.Vehicle.Data.X.Y.Z
+  public: https://himrepo.oem.com?instance=Vehicle.Car.TypeDefinition.X.Y.Z
   description:  ….
   ```

@@ -24,6 +24,12 @@ that can be used to define tree structures representing information (see below) 
 This repository is managed by the [COVESA Data Expert Group](https://wiki.covesa.global/display/WIK4/Data+Expert+Group),
 together with the [COVESA CVIS project](https://wiki.covesa.global/display/WIK4/CVIS+Meeting+Topics+and+Meeting+Notes).
 
+## Latest version
+[HIM version 1.0](https://github.com/COVESA/hierarchical_information_model/releases/tag/v1.0)
+
+## Previous versions
+None.
+
 ## HIM Overview
 
 The information of a domain that is described using HIM is represented in a graph made up of a tree structure with parent-child relationships,
@@ -38,13 +44,18 @@ This rule set aims at being domain agnostic and can thus be used to define the t
 Another ambition of HIM s that it shall support definition of taxonomies of different types of information,
 and not only the type here called "resource data".
 HIM currently supports the following "information types":
-- Resource data: Information defining the data that a resource produces or consumes.
-- Service data: Information defining the details of a "service" in the form of a procedure (name, input, output).
+- Vehicle data: Information defining the data that a vehicle produces or consumes.
+- Service: Information defining the details of a "service" in the form of a procedure (name, input, output).
 - Type definition data: Information defining complex/composite data types that are used by the other information types.
 
 HIM also provides a rule set for the definition of a "configuration file" that can be used by a HIM enabled data server in its management of
-a "forest" of multiple trees. This information can also by the server be provided to a client wanting to know what data or services the server
+a "forest" of multiple trees. This information can also by the server be provided to a client wanting to know what vehicle data or services the server
 has to offer.
+
+HIM uses profiles that defines subsets of the complete model.
+Currently the following profiles are defined:
+* Vehicle data profile: excludes the Service information type
+* Service profile excludes the Vehicle data information type
 
 What is not an ambition of HIM is to define how the information is transported between agents,
 which is left to projects defining transport protocols, interfaces, and the like.

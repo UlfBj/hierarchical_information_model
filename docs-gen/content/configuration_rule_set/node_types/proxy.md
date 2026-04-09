@@ -66,7 +66,7 @@ The `local` points to a Unix domain socket for communication with a proxy server
 ```YAML
 HIM.Home:
   type: proxy
-  domain: HomeAutomation.Zigbee.Data
+  domain: HomeAutomation.Zigbee.Service
   version: X.Y.Z
   local: uds://path/to/uds-file
   description: Home automation proxy tree.

@@ -7,7 +7,7 @@ Currently it supports the exporter formats:
 * JSON
 * binary
 
-All the key names of properties used to define a data tree can be used, plus te following:
+All the key names of properties used to define a vehicle data tree can be used, plus the following:
 * procedure  // the name of the procedure that is called to execute the service
 * iostruct   // a struct that is dedicated to define the procedure input and output parameters.
 
@@ -15,7 +15,7 @@ The HIM tools does not support the "instances" feature.
 
 ## HIM tools generated service tree in a VISSR context
 HIM tools can be used to generate a binary formatted tree that can to a limited extent be used by the VISSR server.
-The limitation depends on that the current version of VISSR only supports the HIM data profile, not he HIM service profile.
+The limitation depends on that the current version of VISSR only supports the HIM vehicle data profile, not the HIM service profile.
 It is herefore not possible to invoke a service on VISSR, i. e. make a call to a procedure node together with its input parameters.
 What can be done however, is to issue a "service discovery" request to the server, on which it will return the metadata of the addressed subtree.
 
@@ -35,7 +35,7 @@ HIM.VehicleService:
   domain: Vehicle.Car.Service
   version: 0.0.1
   local: forest/himExport.binary
-#  public: https://himrepo.oem.com?instance=Vehicle.Car.ResourceData.X.Y.Z
+#  public: https://himrepo.oem.com?instance=Vehicle.Car.Service.X.Y.Z
   description: A HIM service tree.
 ```
 7. Start the VISSR server plus a feeder. This can be done by issuing "$ ./runstack startme" in the vissr directory.
