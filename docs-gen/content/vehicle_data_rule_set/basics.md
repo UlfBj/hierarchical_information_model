@@ -4,8 +4,8 @@ date: 2019-08-04T13:05:11+02:00
 weight: 1
 ---
 
-The rule set for Data is inherited from the [VSS rule set](https://covesa.github.io/vehicle_signal_specification/rule_set/).
-It is the leaf nodes of a tree that represents and defines the actual data.
+The rule set for vehicle data is inherited from the [VSS rule set](https://covesa.github.io/vehicle_signal_specification/rule_set/).
+It is the leaf nodes of a tree that represents and defines the actual vehicle data.
 The definition is expressed by metadata describing the data associated to the node.
 
 ## Node Types

@@ -18,7 +18,7 @@ A domain can in the HIM context be defined with the help of two dimensions:
   - Examples are a car, a truck, a trailer, an airplane, etc.,
 - an 'information type' dimension that is used in the description of a coherent dimension using a specific information type.
   - The currently defined information types are listed below.
-    - Data
+    - Vehicle data
     - Service
     - Type definitions
 
@@ -29,8 +29,8 @@ One example of such a project is the [Vehicle Signal Specification](https://gith
 
 The documentation is structured in the different rule sets shortly described below.
 
-## HIM Data Rule Set
-[Rules](/hierarchical_information_model/data_rule_set/) for describing data produced/consumed by resources that can be represented by static or dynamically changing data values.
+## HIM Vehicle Data Rule Set
+[Rules](/hierarchical_information_model/vehicle_data_rule_set/) for describing data produced/consumed by vehicles that can be represented by static or dynamically changing data values.
 
 ## HIM Service Rule Set
 [Rules](/hierarchical_information_model/service_rule_set/) for describing services that can be represented by procedure signatures.
@@ -49,20 +49,18 @@ The HIM model supports different information types,
 and a server exposing an interface that uses HIM for its data representation may have to implement features that its clients have no interest in.
 A server to be used in an environment where the Data type (i. e. classical signals) is used can then be
 implemented without support for a service oriented architecture (SOA).
-To support scenarios like this HIM specifies the three different profiles shown below.
+To support scenarios like this HIM specifies the different profiles shown below.
 
-A client that issues an inquiry on what profile is supported shall receive information on that in the response.
-
-### HIM Data Profile
-The HIM Data profile excludes use of trees that contain the Service data information type.
+### HIM Vehicle Data Profile
+The HIM vehicle data profile excludes use of trees that contain the Service information type.
 This profile is for example compatible with the VSS tree.
 
 ### HIM Service Profile
-The HIM Service profile excludes use of trees that contain the Data information type.
+The HIM Service profile excludes use of trees that contain the Vehicle data information type.
 This profile can for example be used in "pure" SOA architectures.
 
-### HIM All Profile
-The HIM All profile supports use of trees that contain data of any HIM specified information type.
+### HIM Complete Profile
+The HIM Complete profile supports use of trees that contain data of any HIM specified information type.
 This makes it possible for a server to serve clients that wants to have access to both "classical signals" and services represented by function calls.
 
 ## HIM enablers
@@ -70,7 +68,7 @@ HIM enables a single server implementation to support use cases from multiple do
 [COVESA VSS](https://github.com/COVESA/vehicle_signal_specification) tree,
 or diagnostics via a tree referring to diagnostics data, or trees describing the data or services of other domains.
 
-The same server can expose access to both data (signals) and services (procedures).
+The same server can expose access to both vehicle data (signals) and services (procedures).
 Instead of developing a new server and possibly also define a new interface when a new domain is to be served,
 a new tree containing the signals or services for the domain is created and linked to the server via the HIM configuration file.
 

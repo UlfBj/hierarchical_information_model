@@ -5,10 +5,10 @@ HIM:
 
 HIM.Vehicle:
   type: direct
-  domain: Vehicle.Car.Data
+  domain: Vehicle.Car.VehicleData
   version: X.Y.Z
   local: file://<full-path-name>
-  public: https://himrepo.oem.com?instance=Vehicle.Car.ResourceData.X.Y.Z
+  public: https://himrepo.oem.com?instance=Vehicle.Car.VehicleData.X.Y.Z
   description:  Vehicle signal tree.
 
 HIM.VehicleServices:
@@ -16,7 +16,7 @@ HIM.VehicleServices:
   domain: Vehicle.Car.Service
   version: X.Y.Z
   local: file://<full-path-name>
-  public: https://himrepo.oem.com?instance=Vehicle.Car.ServiceData.X.Y.Z
+  public: https://himrepo.oem.com?instance=Vehicle.Car.Service.X.Y.Z
   description:  Vehicle service tree.
 
 HIM.Types:
@@ -24,12 +24,5 @@ HIM.Types:
   domain: Vehicle.Car.TypeDefinition
   version: X.Y.Z
   local: file://<full-path-name>
-  public: https://himrepo.oem.com?instance=Vehicle.Car.DataType.X.Y.Z
+  public: https://himrepo.oem.com?instance=Vehicle.Car.TypeDefinition.X.Y.Z
   description:  Type definition tree.
-
-HIM.Home:
-  type: proxy
-  domain: HomeAutomation.Zigbee.Data
-  version: X.Y.Z
-  local: uds://path/to/uds-file
-  description: Home automation proxy tree.

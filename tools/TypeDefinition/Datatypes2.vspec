@@ -1,3 +1,4 @@
+# Type definition tree with struct that has a member that is another struct
 Types:
   description: Datatype definitions.
   type: branch
@@ -22,6 +23,29 @@ Types.Struct.FileDescriptor.Hash:
 
 Types.Struct.FileDescriptor.Uid:
   description: File descriptor uid struct member.
+  type: property
+  datatype: string
+
+Types.Struct.InlineStruct:
+  description: Test struct with member that is a struct.
+  type: struct
+
+Types.Struct.InlineStruct.Name:
+  description: Name struct member.
+  type: property
+  datatype: string
+
+Types.Struct.InlineStruct.NewStruct:
+  description: A new struct as struct member.
+  type: property
+  datatype: Types.Struct.InlineStruct.InlineStructMember
+
+Types.Struct.InlineStruct.InlineStructMember:
+  description: Test struct used as member of another struct.
+  type: struct
+
+Types.Struct.InlineStruct.InlineStructMember.Name:
+  description: Name inline struct member.
   type: property
   datatype: string
 
