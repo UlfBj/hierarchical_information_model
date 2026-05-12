@@ -55,7 +55,7 @@ VehicleService.Seating.MoveSeat.Input.ServiceId:
   type: property
   datatype: uint32
   description: A reference to the service execution session.
-  
+
 VehicleService.Seating.MoveSeat.Version:
   type: attribute
   datatype: string
