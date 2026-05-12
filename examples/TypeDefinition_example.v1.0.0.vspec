@@ -2,29 +2,62 @@ Types:
   type: branch
   description: Root node for the datatype definition tree.
 
-Types.Location:
+Types.Struct:
+  type: branch
+  description: Struct definitions.
+
+Types.Struct.Seating:
+  type: branch
+  description: Seating related struct definitions.
+
+Types.Struct.Seating.SeatId:
   type: struct
-  description: A struct containing Lat/Long data.
+  description: Identity by position.
 
-Types.Location.Latitude:
-  datatype: double
+Types.Struct.Seating.SeatId.Row:
   type: property
-  min: -90
-  max: 90
-  unit: degrees
-  description: Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
+  datatype: string
+  description: Row name.
 
-Types.Location.Longitude:
-  datatype: double
+Types.Struct.Seating.SeatId.Column:
   type: property
-  min: -180
-  max: 180
-  unit: degrees
-  description: Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
+  datatype: string
+  description: Column name.
+
+Types.Enum:
+  type: branch
+  description: Enum definitions.
+
+Types.Enum.Service:
+  type: branch
+  description: Service enum definitions.
+
+Types.Enum.Service.Status:
+  type: attribute
+  datatype: uint8
+  enum:
+    SUCCESSFUL: 0
+    ONGOING: 1
+    CANCELED: 2
+    FAILED: -1
+  default: 0
+  description: The execution status of a service.
 
 Types.Version:
   type: branch
   description: Supported Version.
+
+Types.Common:
+  type: branch
+  description: Common definitions.
+
+Types.Common.Percentage:
+  type: attribute
+  datatype: float
+  unit: percent
+  min: 0
+  max: 100
+  description: Percent definition.
 
 Types.Version.Major:
   datatype: uint32

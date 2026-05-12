@@ -1,44 +1,63 @@
+# The service tree example builds on input from the Capabilities project:
+# https://covesa.atlassian.net/wiki/spaces/WIK4/pages/39059848/Capabilities+Project+-+Seating+Capabilities#CapabilitiesProject-SeatingCapabilities-InformationTypes
+
 VehicleService:
   type: branch
   description: The Vehicle services.
 
-VehicleService.ExteriorLighting:
+VehicleService.Seating:
   type: branch
-  description: The Exterior lighting service.
+  description: The Seating service group.
 
-VehicleService.ExteriorLighting.Properties:
-  type: branch
-  description: The common properties of Exterior lighting service.
-
-VehicleService.ExteriorLighting.Properties. HeadLampsLayout:
-  type: attribute
-  datatype: string
-  default: ["Left", "Right"]
-  description: The head lamp properties.
-
-VehicleService.ExteriorLighting.HeadLampsOnOff:
+VehicleService.Seating.MoveSeat:
   type: procedure
-  description: Microservice name=HeadLampsOnOff, Input=Switch, Output=None.
+  description: Performs all supported seat movements.
 
-VehicleService.ExteriorLighting.HeadLampsOnOff.Version:
+VehicleService.Seating.MoveSeat.Input:
+  type: iostruct
+  description:  Input parameters= (SeatId, MovementType, Position, Credentials).
+
+VehicleService.Seating.MoveSeat.Input.SeatId:
+  type: property
+  datatype: Types.Struct.Seating.SeatId
+  description: Seat identity.
+
+VehicleService.Seating.MoveSeat.Input.MovementType:
+  type: property
+  datatype: string
+  description: Type of movement. Supported types are retrieved via GetPropertiesSeating().
+
+VehicleService.Seating.MoveSeat.Input.Position:
+  type: property
+  datatype: Types.Common.Percentage
+  description: Final position of the movement, expressed as a percentage.
+
+VehicleService.Seating.MoveSeat.Input.Credentials:
+  type: property
+  datatype: string
+  description: A token with client credentials. Optional parameter.
+
+VehicleService.Seating.MoveSeat.Output:
+  type: iostruct
+  description:  Output parameters= (Status, Position, ServiceId).
+
+VehicleService.Seating.MoveSeat.Output.Status:
+  type: property
+  datatype: Types.Enum.Common.Status
+  description: Status of the MoveSeat service.
+
+VehicleService.Seating.MoveSeat.Output.Position:
+  type: property
+  datatype: Types.Common.Percentage
+  description: Final position of the movement, expressed as a percentage.
+
+VehicleService.Seating.MoveSeat.Input.ServiceId:
+  type: property
+  datatype: uint32
+  description: A reference to the service execution session.
+  
+VehicleService.Seating.MoveSeat.Version:
   type: attribute
   datatype: string
   default: 1.0.0
-  description: The HeadLampsOnOff microservice version.
-
-VehicleService.ExteriorLighting.HeadLampsOnOff.Input:
-  type: iostruct
-  description: An iostruct type containing the input parameter(s).
-
-VehicleService.ExteriorLighting.HeadLampsOnOff.Input.Switch:
-  type: symlink
-  path: Vehicle.Body.Lights.IsHighBeamSwitchOn
-  domain: Automotive.Vehicle.Car.ResourceData
-  version: 3.0.0+
-  description: The reference in the VSS data tree is set to the input value.
-
-VehicleService.Version:
-  type: branch
-  description: Supported Version.
-
-# Here follows the mandatory Major, Minor, and Patch nodes with the version of the entire VehicleService file.
+  description: The MoveSeat service version.
