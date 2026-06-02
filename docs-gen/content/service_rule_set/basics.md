@@ -45,14 +45,11 @@ A microservice may have a significant temporal duration from it is started and u
 It may therefore be desireable that the state of the microservice can be observed,
 as e. g. it may be the case that an ongoing microservice execution does not allow new microservice actuations to be started.
 
-Service response or event messages shall therefore contain a parameter called Status, an enum with the following definition:
-```
-enum {
-	ONGOING = 1     // in execution of latest call
-	SUCCESSFUL = 0  // terminated successfully in latest call
-	FAILED = -1      // terminated due to failure in latest call
-}
-```
+Service response or event messages shall therefore contain a parameter called Status,
+which shall support at least the following states:
+- ONGOING: in execution of latest call
+- SUCCESSFUL: terminated successfully in latest call
+- FAILED: terminated due to failure in latest call
 
 The rules for how a microservice shall update the state value follows below:
 
