@@ -1,5 +1,5 @@
 ---
-title: "procedure node"
+title: "Procedure node"
 weight: 30
 ---
 
@@ -12,6 +12,14 @@ For more information, see the [Common Rule Set: Mandatory Metadata](/hierarchica
 
 Besides the mandatory metadata mentioned above, the following optional metadata may be used
 - Comment
+- NativeRate
+- TimeToLive
+
+The NativeRate shall be an integer that indicates the typical duration in milliseconds between two subsequent microservice event messages.
+If set to zero then the service terminates instantaneously.
+
+The TimeToLive indicates a maximum time in milliseconds that the server shall allow a service to execute.
+When it is exceeded the server may terminate the service and issue a final event message with the Status set to FAILED.
 
 For more information, please see the [Common Rule Set: Optional Metadata](/hierarchical_information_model/common_rule_set/basics#optional-metadata).
 
