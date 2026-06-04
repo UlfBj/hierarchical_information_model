@@ -59,7 +59,7 @@ VehicleService.Seating.MoveSeat.Version:
   datatype: string
   default: 1.0.0
   description: The MoveSeat service version.
-  
+
 VehicleService.Seating.GetCapabilities:
   type: procedure
   description:  Get the tokens representing supported seat capabilities.
