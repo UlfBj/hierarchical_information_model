@@ -7,6 +7,9 @@ VehicleService:
 
 VehicleService.Seating:
   type: branch
+  instances:
+    - Row[1,2]
+    - ["DriverSide","PassengerSide"]
   description: The Seating service group.
 
 VehicleService.Seating.MoveSeat:
@@ -15,12 +18,7 @@ VehicleService.Seating.MoveSeat:
 
 VehicleService.Seating.MoveSeat.Input:
   type: iostruct
-  description:  Input parameters= (SeatId, MovementType, Position, Credentials).
-
-VehicleService.Seating.MoveSeat.Input.SeatId:
-  type: property
-  datatype: Types.Struct.Seating.SeatId
-  description: Seat identity.
+  description:  Input parameters= (MovementType, Position, Credentials).
 
 VehicleService.Seating.MoveSeat.Input.MovementType:
   type: property
@@ -43,7 +41,7 @@ VehicleService.Seating.MoveSeat.Output:
 
 VehicleService.Seating.MoveSeat.Output.Status:
   type: property
-  datatype: Types.Enum.Common.Status
+  datatype: Types.Enum.Service.Status
   description: Status of the MoveSeat service.
 
 VehicleService.Seating.MoveSeat.Output.Position:
@@ -51,7 +49,7 @@ VehicleService.Seating.MoveSeat.Output.Position:
   datatype: Types.Common.Percentage
   description: Final position of the movement, expressed as a percentage.
 
-VehicleService.Seating.MoveSeat.Input.ServiceId:
+VehicleService.Seating.MoveSeat.Output.ServiceId:
   type: property
   datatype: uint32
   description: A reference to the service execution session.
@@ -61,3 +59,27 @@ VehicleService.Seating.MoveSeat.Version:
   datatype: string
   default: 1.0.0
   description: The MoveSeat service version.
+
+VehicleService.Seating.GetCapabilities:
+  type: procedure
+  description:  Get the tokens representing supported seat capabilities.
+
+VehicleService.Seating.GetCapabilities.Output:
+  type: iostruct
+  description:  Output parameters= (Status, Capabilities[]).
+
+VehicleService.Seating.GetCapabilities.Output.Status:
+  type: property
+  datatype: Types.Enum.Service.Status
+  description: Status of the GetCapabilities service.
+
+VehicleService.Seating.GetCapabilities.Output.Capabilities:
+  type: property
+  datatype: Types.Struct.Service.Capability[]
+  description: Array member contains definition of a capability.
+
+VehicleService.Seating.GetCapabilities.Version:
+  type: attribute
+  datatype: string
+  default: 1.0.0
+  description: The GetCapabilities service version.
