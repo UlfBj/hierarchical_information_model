@@ -6,20 +6,52 @@ Types.Struct:
   type: branch
   description: Struct definitions.
 
-Types.Struct.Seating:
+Types.Struct.Service:
+  type: branch
+  description: Service struct definitions.
+
+Types.Struct.Service.Capability:
+  type: struct
+  description: Service capability definition.
+
+Types.Struct.Service.Capability.Name:
+  type: property
+  datatype: string
+  description: Capability name.
+
+Types.Struct.Service.Capability.Data:
+  type: property
+  datatype: Types.Struct.Service.CapabilityData[]
+  description: Capability name.
+
+Types.Struct.Service.CapabilityData:
+  type: struct
+  description: Capability support definition.
+
+Types.Struct.Service.CapabilityData.Name:
+  type: property
+  datatype: string
+  description: Capability name.
+
+Types.Struct.Service.CapabilityData.Description:
+  type: property
+  datatype: string
+  description: Capability description.
+
+Types.Struct.Service.Seating:
   type: branch
   description: Seating related struct definitions.
 
-Types.Struct.Seating.SeatId:
+Types.Struct.Service.Seating.SeatId:
   type: struct
   description: Identity by position.
 
-Types.Struct.Seating.SeatId.Row:
+Types.Struct.Service.Seating.SeatId.Row:
   type: property
   datatype: string
   description: Row name.
 
-Types.Struct.Seating.SeatId.Column:
+Types.Struct.Service.Seating.SeatId.Column:
   type: property
   datatype: string
   description: Column name.
@@ -43,10 +75,6 @@ Types.Enum.Service.Status:
   default: 0
   description: The execution status of a service.
 
-Types.Version:
-  type: branch
-  description: Supported Version.
-
 Types.Common:
   type: branch
   description: Common definitions.
@@ -58,6 +86,10 @@ Types.Common.Percentage:
   min: 0
   max: 100
   description: Percent definition.
+
+Types.Version:
+  type: branch
+  description: Supported Version.
 
 Types.Version.Major:
   datatype: uint32
