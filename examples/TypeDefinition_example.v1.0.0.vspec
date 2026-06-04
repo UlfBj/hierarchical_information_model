@@ -66,13 +66,13 @@ Types.Enum.Service:
 
 Types.Enum.Service.Status:
   type: attribute
-  datatype: uint8
-  enum:
-    SUCCESSFUL: 0
-    ONGOING: 1
-    CANCELED: 2
-    FAILED: -1
-  default: 0
+  datatype: string
+  allowed:
+    - 'SUCCESSFUL'
+    - 'ONGOING'
+    - 'CANCELED'
+    - 'FAILED'
+  default: 'SUCCESSFUL'
   description: The execution status of a service.
 
 Types.Common:
