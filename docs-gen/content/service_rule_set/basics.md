@@ -11,7 +11,7 @@ Such as set is named `Service`, or `Service Group` for larger sets where a set o
 see the figure below, or the [example service tree](https://github.com/COVESA/hierarchical_information_model/blob/master/examples/HIM_Service_example.v1.0.0.yaml).
 
 ![HIM service tree structure](/hierarchical_information_model/images/service_tree_structure.png?width=50pc)
-*Figure x. HIM service tree structure
+*Figure 1. HIM service tree structure
 
 ## HIM Microservice
 A microservice is in HIM defined by a procedure signature as shown below:
@@ -31,13 +31,24 @@ This is expeted to be defined in an interface specification that uses HIM.
 The general structure of how a microservice is represented in a HIM tree is shown in the figure below.
 
 ![HIM microservice tree structure](/hierarchical_information_model/images/microservice_tree_structure.png?width=50pc)
-*Figure x. HIM microservice tree structure
+*Figure 2. HIM microservice tree structure
 
 - The name of the procedure is the name of the node of the type `procedure`.
 - The input and output parameters are respectively represented by a  node of type `iostruct` that must have the names 'Input' and 'Output', respectively.
 - An input/output parameter is represented by a node of type `property` or `symlink`.
 
 Any Input/Output nodes, and their associated children, are only present if the procedure has at least one parameter of the respective Input/Output.
+
+## Multplexed microservice tree structure
+
+If a service manages multiple instances of a resource then each of these resource interfaces needs to be separately represented in the
+tree in order for input and output data to be concurrently available. This can be realized by applying the 'instances' directive in the
+procedure node vspec declaration. The Input and Output node declarations of the procedure will then become instantiated in the same
+manner as when the directive is used for the vehicledata information type, see the figure below where an instance
+directive 'instances: Resource[1, N]' is used as example.
+
+![HIM microservice tree structure](/hierarchical_information_model/images/multiplexed_microservice_tree_structure.jpg?width=50pc)
+*Figure 3. HIM multiplexed microservice tree structure
 
 ## Microservice completion state
 
@@ -49,13 +60,15 @@ Service response or event messages shall therefore contain a parameter called St
 which shall support at least the following states:
 - ONGOING: in execution of latest call
 - SUCCESSFUL: terminated successfully in latest call
+- CANCELED: canceled by the invoking client in latest call
 - FAILED: terminated due to failure in latest call
 
 The rules for how a microservice shall update the state value follows below:
-
 - A fully functioning microservice that is not ongoing shall have the value SUCCESSFUL.
 - When a valid microservice request is received and the service execution is started the state shall be set to ONGOING.
 - When the microservice execution successfully terminates the state value shall be set to SUCCESSFUL.
+- When a client issues a Cancel request before the service is successfully terminated or have failed
+then the value shall be set to CANCELED.
 - If the microservice fails at any point during its execution the state value shall be set to FAILED.
 
 If there is a need for microservice specific error codes then these should be defined as another output parameter.
