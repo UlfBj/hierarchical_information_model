@@ -11,9 +11,15 @@ The `procedure` node type must have the following mandatory metadata:
 For more information, see the [Common Rule Set: Mandatory Metadata](/hierarchical_information_model/common_rule_set/basics#mandatory-metadata).
 
 Besides the mandatory metadata mentioned above, the following optional metadata may be used
+- Instances
 - Comment
 - NativeRate
 - TimeToLive
+
+The Instances directive can be used when a service manages multiple resources,
+see [Multplexed microservice tree structure](/hierarchical_information_model/service_rule_set/basics#multplexed-microservice-tree-structure).
+Its definition follows the same rules as for its usage in branch type nodes as described [here](/hierarchical_information_model/data_rule_set/vspec_extensions/instances)
+with the extension that it can be used in procedure nodes.
 
 The NativeRate shall be an integer that indicates the typical duration in milliseconds between two subsequent microservice event messages.
 If set to zero then the service terminates instantaneously.
@@ -31,7 +37,8 @@ An example of the specification of a `procedure` node is given below.
 ```YAML
 microserviceName:
   type: procedure
-  description: This is an example of a microservice procedure node containing its mandatory metadata.
+  instances: Resource[1, 3]
+  description: This is an example of a microservice procedure node that manages three resources.
 ```
 
 ## Version node
