@@ -39,7 +39,7 @@ The general structure of how a microservice is represented in a HIM tree is show
 
 Any Input/Output nodes, and their associated children, are only present if the procedure has at least one parameter of the respective Input/Output.
 
-## Multplexed microservice tree structure
+## Multiplexed microservice tree structure
 
 If a service manages multiple instances of a resource then each of these resource interfaces needs to be separately represented in the
 tree in order for input and output data to be concurrently available. This can be realized by applying the 'instances' directive in the
