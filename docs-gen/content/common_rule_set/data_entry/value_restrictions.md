@@ -10,13 +10,13 @@ HIM supports the following metadata for restricting the valid values of data.
 - allowed
 
 ## Min
-The minimum value, within the interval of the given datatype, that the data entry can be assigned. 
+The minimum value, within the interval of the given datatype, that the data entry can be assigned.
 If omitted, the minimum value will be the “Min” value for the given datatype.
 The `min` restrictions can only be used data having a "number"datatype (intx, uintx, float, double).
 Must not be specified if `allowed` is defined in the same node.
 
 ## Max
-The maximum value, within the interval of the given datatype, that the data entry can be assigned. 
+The maximum value, within the interval of the given datatype, that the data entry can be assigned.
 If omitted, the maximum value will be the “Max” value for the given datatype.
 The `max` restrictions can only be used data having a "number"datatype (intx, uintx, float, double).
 Must not be specified if `allowed` is defined in the same node.
