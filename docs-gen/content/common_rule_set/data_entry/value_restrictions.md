@@ -32,7 +32,31 @@ Powertrain.TractionBattery.StateOfCharge.Current:
   description: Physical state of charge of the high voltage battery, relative to net capacity.
 ```
 
-## Allowed
+## Enumerated values
+Definition of enumerated set of values can be done using one of two different syntax models.
+The two models are referred to by the key values `enum` or `allowed`.
+If one is used in a node of a tree the other must not also be used in the same tree.
+
+### Enum
+The `enum` restriction defines a array of accepted data values where each value is associated with a symbolic value as shown below.
+```YAML
+Vehicle.Exterior.RoadSurfaceCondition:
+  datatype: uint8
+  type: sensor
+  enum:
+    UNKNOWN: 0
+    DRY: 1
+    WET: 2
+    SNOW: 3
+    ICE: 4
+    SLUSH: 5
+    WET_ICE: 6
+    LOOSE_GRAVEL: 7
+  description: Assessed condition of the road surface beneath or ahead of the vehicle.
+```
+The datatype must be of number type, i. e. one of [uint8, uint16, uint32, uint64, int8, int16, int32, int64] or arrays of these.
+
+### Allowed
 The `allowed` restriction defines a array of accepted data values, defined as a comma separated list of values confined within square brackets, see example below.
 It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly.
 The datatype of the array elements shall be compatible with the `datatype` defined for the data entry itself.
