@@ -23,22 +23,8 @@ or for the definition of [allowed](/hierarchical_information_model/common_rule_s
 
 The node types for representing type definitions are:
 - Branch
-- Struct
-- Property
-- Attribute
+- [Struct](/hierarchical_information_model/type_definition_rule_set/struct)
+- [Property](/hierarchical_information_model/type_definition_rule_set/property)
+- [Typedef](/hierarchical_information_model/type_definition_rule_set/typedef)
 
 Please see more information about these node types [here](/hierarchical_information_model/common_rule_set/node_types/).
-
-## Attribute node used for allowed definition
-In this usage the attribute node type must have a node of type `branch` as parent, and must not have any children.
-When used for allowed definition, the metadata types Unit, Min, Max or Default must not be used.
-
-An example of the specification of a `attribute` node for an allowed definition is given below.
-
-```YAML
-Types.Cabin.DriverPositionValues:
-  type: attribute
-  datatype: string
-  allowed: ['LEFT', 'MIDDLE', 'RIGHT']
-  description: DriverPosition allowed values.
-```
